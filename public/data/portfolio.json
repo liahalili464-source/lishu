@@ -1,0 +1,102 @@
+{
+  "brand": {
+    "name": "LISHU",
+    "tagline": "Photography. Video. Design. תוכן שמרגיש כמו העסק שלך.",
+    "instagram": "https://www.instagram.com/YOUR_USERNAME",
+    "tiktok": "https://www.tiktok.com/@YOUR_USERNAME"
+  },
+  "photos": [
+    {
+      "id": "wrestling",
+      "title": "היאבקות",
+      "dir": "uploads/stills/wrestling",
+      "group": "photos",
+      "type": "Stills",
+      "items": []
+    },
+    {
+      "id": "portraits",
+      "title": "פורטרטים",
+      "dir": "uploads/stills/portraits",
+      "group": "photos",
+      "type": "Stills",
+      "items": []
+    },
+    {
+      "id": "street",
+      "title": "צילומי רחוב",
+      "dir": "uploads/stills/street",
+      "group": "photos",
+      "type": "Stills",
+      "items": []
+    },
+    {
+      "id": "oneyear",
+      "title": "גיל שנה",
+      "dir": "uploads/stills/oneyear",
+      "group": "photos",
+      "type": "Stills",
+      "items": []
+    }
+  ],
+  "design": [
+    {
+      "id": "reels-covers",
+      "title": "קאברים לרילס",
+      "dir": "uploads/design/reels-covers",
+      "group": "design",
+      "type": "Design",
+      "items": []
+    },
+    {
+      "id": "branding",
+      "title": "מיתוג עסקי",
+      "dir": "uploads/design/branding",
+      "group": "design",
+      "type": "Design",
+      "items": []
+    },
+    {
+      "id": "social-media",
+      "title": "פוסטים לרשתות",
+      "dir": "uploads/design/social-media",
+      "group": "design",
+      "type": "Design",
+      "items": []
+    }
+  ],
+  "videosByCategory": [
+    {
+      "id": "instagram-reels",
+      "title": "Instagram Reels",
+      "dir": "uploads/videos/instagram-reels",
+      "group": "videos",
+      "type": "Video",
+      "items": []
+    },
+    {
+      "id": "sorry-for-asking",
+      "title": "סליחה על השאלה",
+      "dir": "uploads/videos/sorry-for-asking",
+      "group": "videos",
+      "type": "Video",
+      "items": []
+    },
+    {
+      "id": "music-video",
+      "title": "קליפ",
+      "dir": "uploads/videos/music-video",
+      "group": "videos",
+      "type": "Video",
+      "items": []
+    },
+    {
+      "id": "documentary",
+      "title": "סרט דוקו",
+      "dir": "uploads/videos/documentary",
+      "group": "videos",
+      "type": "Video",
+      "items": []
+    }
+  ]
+}
