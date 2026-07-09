@@ -1,9 +1,0 @@
-{
-  "name": "lishu-portfolio",
-  "version": "1.0.0",
-  "scripts": {
-    "build": "node scripts/generate-manifest.js",
-    "start": "python3 -m http.server 8080"
-  },
-  "devDependencies": {}
-}
