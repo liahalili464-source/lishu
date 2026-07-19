@@ -10,7 +10,6 @@ const state = {
 const categoryGrid = document.getElementById("categoryGrid");
 const galleryView = document.getElementById("galleryView");
 const photoGrid = document.getElementById("photoGrid");
-const loadError = document.getElementById("loadError");
 const heroBg = document.getElementById("heroBg");
 
 function joinUrl(...parts) {
@@ -39,47 +38,31 @@ function categoryDetails(folder) {
   };
 }
 
-async function readFolder(path) {
-  const url = `${joinUrl(config.sirvBaseUrl, path)}/?json=true&sort=mtime`;
-  const response = await fetch(url, { cache: "no-store" });
-  if (!response.ok) throw new Error(`Sirv returned ${response.status}`);
-  return response.json();
-}
-
 async function loadPortfolio() {
   try {
-    const rootData = await readFolder(config.rootFolder);
-    const dirs = (rootData.dirs || [])
-      .map(dir => typeof dir === "string" ? dir : dir.name)
-      .filter(Boolean)
-      .filter(name => !name.startsWith(config.hiddenPrefix));
+    const response = await fetch("/api/gallery", { cache: "no-store" });
+    if (!response.ok) throw new Error(`Gallery API returned ${response.status}`);
 
-    const categories = await Promise.all(
-      dirs.map(async folder => {
-        const path = `${config.rootFolder}/${folder}`;
-        const data = await readFolder(path);
-        const files = (data.files || [])
-          .filter(file => imagePattern.test(file.name))
-          .filter(file => !file.name.startsWith(config.hiddenPrefix))
-          .sort((a,b) => new Date(b.mtime || 0) - new Date(a.mtime || 0));
+    const data = await response.json();
 
-        const details = categoryDetails(folder);
-        return { folder, path, files, ...details };
+    state.categories = (data.categories || [])
+      .map(category => {
+        const details = categoryDetails(category.folder);
+        return {
+          ...category,
+          ...details
+        };
       })
-    );
-
-    state.categories = categories
       .filter(category => category.files.length)
       .sort((a,b) => a.order - b.order || a.title.localeCompare(b.title, "he"));
 
-    if (!state.categories.length) throw new Error("No public image folders found");
+    if (!state.categories.length) throw new Error("No image folders found");
 
     renderCategories();
     setHeroImage(state.categories[0].files[0], state.categories[0].path);
   } catch (error) {
     console.error(error);
     categoryGrid.innerHTML = "";
-    loadError.hidden = false;
     setHeroFallback();
   }
 }
@@ -90,7 +73,7 @@ function imageUrl(path, filename, options = "") {
 }
 
 function setHeroImage(file, path) {
-  heroBg.style.backgroundImage = `url("${imageUrl(path, file.name, "w=2200&quality=85")}");`;
+  heroBg.style.backgroundImage = `url("${imageUrl(path, file.filename, "w=2200&quality=85")}");`;
 }
 
 function setHeroFallback() {
@@ -141,7 +124,7 @@ function openCategory(index) {
   photoGrid.innerHTML = state.activePhotos.map((photo, photoIndex) => `
     <figure class="photo-card" data-index="${photoIndex}">
       <img
-        src="${imageUrl(photo.path, photo.file.name, "w=900&quality=82")}"
+        src="${imageUrl(photo.path, photo.file.filename, "w=900&quality=82")}"
         alt="${photo.file.meta?.description || photo.title}"
         loading="lazy"
         decoding="async">
@@ -183,7 +166,7 @@ function closeLightbox() {
 
 function updateLightbox() {
   const photo = state.activePhotos[state.lightboxIndex];
-  lightboxImage.src = imageUrl(photo.path, photo.file.name, "w=2400&quality=92");
+  lightboxImage.src = imageUrl(photo.path, photo.file.filename, "w=2400&quality=92");
   lightboxImage.alt = photo.file.meta?.description || photo.title;
   lightboxCaption.textContent = photo.file.meta?.title || "";
 }
