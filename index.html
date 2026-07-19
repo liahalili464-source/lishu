@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="LISHU — פורטפוליו צילום של ליה חלילי" />
+  <meta name="theme-color" content="#09090d" />
+  <title>LISHU | Photography</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Assistant:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header class="header" id="top">
+    <a class="logo" href="#top" aria-label="LISHU">
+      <span>LISHU</span>
+      <small>PHOTOGRAPHY</small>
+    </a>
+
+    <button class="menu-toggle" aria-label="פתיחת תפריט" aria-expanded="false">☰</button>
+
+    <nav class="nav">
+      <a href="#work">עבודות</a>
+      <a href="#about">אודות</a>
+      <a class="nav-contact" href="https://www.instagram.com/lishu.il" target="_blank" rel="noreferrer">
+        יצירת קשר
+      </a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-bg" id="heroBg"></div>
+      <div class="hero-shade"></div>
+
+      <div class="hero-copy">
+        <p class="kicker">LIA HALILI · PHOTOGRAPHER</p>
+        <h1 id="hero-title">תמונות עם<br><em>דופק.</em></h1>
+        <p class="hero-text">
+          אנשים, תנועה ורגעים שלא חוזרים על עצמם —
+          מספורט ואקשן ועד פורטרטים, משפחות וסיפורים חדשים.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#work">לצפייה בעבודות</a>
+          <a class="button button-ghost" href="https://www.instagram.com/lishu.il" target="_blank" rel="noreferrer">בואו נדבר ↗</a>
+        </div>
+      </div>
+
+      <a class="scroll-cue" href="#work" aria-label="גלילה לעבודות">
+        <span>SCROLL</span><i></i>
+      </a>
+    </section>
+
+    <section class="work section" id="work">
+      <div class="section-head">
+        <div>
+          <p class="kicker">SELECTED WORK</p>
+          <h2>הסיפורים שצילמתי</h2>
+        </div>
+        <p>
+          האתר מתעדכן ישירות מהתיקיות שלך ב־Sirv.
+          כל תיקייה חדשה שתוסיפי יכולה להפוך לקטגוריה חדשה באתר.
+        </p>
+      </div>
+
+      <div id="categoryGrid" class="category-grid" aria-live="polite">
+        <div class="loader"><span></span><p>טוענת את הגלריות...</p></div>
+      </div>
+
+      <div id="galleryView" class="gallery-view" hidden>
+        <div class="gallery-toolbar">
+          <button id="backToCategories" class="back-button">→ חזרה לקטגוריות</button>
+          <div>
+            <p class="kicker" id="galleryEyebrow">GALLERY</p>
+            <h2 id="galleryTitle"></h2>
+          </div>
+          <span id="galleryCount"></span>
+        </div>
+        <div id="photoGrid" class="photo-grid"></div>
+      </div>
+
+      <div id="loadError" class="error-panel" hidden>
+        <h3>לא הצלחתי לטעון כרגע את התמונות</h3>
+        <p>
+          כדי שהאתר יקרא אוטומטית את Sirv, צריך להפוך את התיקייה
+          <strong>stills</strong> ואת תיקיות המשנה ל־Public.
+          ההסבר המדויק נמצא בקובץ README.
+        </p>
+      </div>
+    </section>
+
+    <section class="about section" id="about">
+      <div class="about-index">01</div>
+      <div class="about-copy">
+        <p class="kicker">ABOUT ME</p>
+        <h2>לא רק לתעד.<br>לתפוס את מה שקורה באמת.</h2>
+        <p>
+          אני ליה חלילי — צלמת, עורכת ויוצרת תוכן. אני אוהבת רגעים שיש בהם
+          אופי: המתח רגע לפני קרב, מבט קטן באמצע פורטרט, או צחוק שלא תוכנן.
+        </p>
+        <p>
+          התחלתי מעולמות הספורט וההיאבקות, אבל המצלמה שלי לא נשארת בתוך
+          קטגוריה אחת. אני מתרחבת לצילומי אנשים, משפחות, מותגים, אירועים
+          וכל סיפור ששווה לעצור עבורו את הזמן.
+        </p>
+      </div>
+      <div class="about-statement">
+        <span>REAL</span>
+        <span>MOMENTS</span>
+        <span>ONLY.</span>
+      </div>
+    </section>
+
+    <section class="contact section">
+      <p class="kicker">LET'S CREATE SOMETHING</p>
+      <h2>יש לכם רעיון?<br>בואו נהפוך אותו לפריים.</h2>
+      <a class="contact-link" href="https://www.instagram.com/lishu.il" target="_blank" rel="noreferrer">
+        דברו איתי באינסטגרם <span>↗</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <a class="logo footer-logo" href="#top"><span>LISHU</span><small>PHOTOGRAPHY</small></a>
+    <p>© <span id="year"></span> Lia Halili. All rights reserved.</p>
+    <div>
+      <a href="https://www.instagram.com/lishu.il" target="_blank" rel="noreferrer">Instagram</a>
+      <a href="https://www.tiktok.com/@lishu.il" target="_blank" rel="noreferrer">TikTok</a>
+    </div>
+  </footer>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <button class="lightbox-close" id="lightboxClose" aria-label="סגירה">×</button>
+    <button class="lightbox-arrow previous" id="previousImage" aria-label="תמונה קודמת">‹</button>
+    <figure>
+      <img id="lightboxImage" alt="" />
+      <figcaption id="lightboxCaption"></figcaption>
+    </figure>
+    <button class="lightbox-arrow next" id="nextImage" aria-label="תמונה הבאה">›</button>
+  </div>
+
+  <script src="config.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
